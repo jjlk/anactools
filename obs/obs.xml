@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<observation_list title="observation list">
+  <observation name="Crab" id="023523" instrument="HESS">
+    <parameter name="EventList" file="$VHEFITS/run023400-023599/run023523/hess_events_023523.fits.gz"/>
+    <parameter name="EffectiveArea" file="$VHEFITS/run023400-023599/run023523/hess_aeff_2d_023523.fits.gz" thetacut="0.11180"/>
+    <parameter name="EnergyDispersion" file="$VHEFITS/run023400-023599/run023523/hess_edisp_2d_023523.fits.gz"/>
+    <parameter name="PointSpreadFunction" file="$VHEFITS/run023400-023599/run023523/hess_psf_king_023523.fits.gz"/>
+	<parameter name="Background" file="$VHEFITS/run023400-023599/run023523/hess_bkg_offruns_023523.fits.gz"/>
+  </observation>
+  <observation name="Crab" id="023526" instrument="HESS">
+    <parameter name="EventList" file="$VHEFITS/run023400-023599/run023526/hess_events_023526.fits.gz"/>
+    <parameter name="EffectiveArea" file="$VHEFITS/run023400-023599/run023526/hess_aeff_2d_023526.fits.gz" thetacut="0.11180"/>
+    <parameter name="EnergyDispersion" file="$VHEFITS/run023400-023599/run023526/hess_edisp_2d_023526.fits.gz"/>
+    <parameter name="PointSpreadFunction" file="$VHEFITS/run023400-023599/run023526/hess_psf_king_023526.fits.gz"/>
+	<parameter name="Background" file="$VHEFITS/run023400-023599/run023526/hess_bkg_offruns_023526.fits.gz"/>
+  </observation>
+  <observation name="Crab" id="023559" instrument="HESS">
+    <parameter name="EventList" file="$VHEFITS/run023400-023599/run023559/hess_events_023559.fits.gz"/>
+    <parameter name="EffectiveArea" file="$VHEFITS/run023400-023599/run023559/hess_aeff_2d_023559.fits.gz" thetacut="0.11180"/>
+    <parameter name="EnergyDispersion" file="$VHEFITS/run023400-023599/run023559/hess_edisp_2d_023559.fits.gz"/>
+    <parameter name="PointSpreadFunction" file="$VHEFITS/run023400-023599/run023559/hess_psf_king_023559.fits.gz"/>
+	<parameter name="Background" file="$VHEFITS/run023400-023599/run023559/hess_bkg_offruns_023559.fits.gz"/>
+  </observation>
+  <observation name="Crab" id="023592" instrument="HESS">
+    <parameter name="EventList" file="$VHEFITS/run023400-023599/run023592/hess_events_023592.fits.gz"/>
+    <parameter name="EffectiveArea" file="$VHEFITS/run023400-023599/run023592/hess_aeff_2d_023592.fits.gz" thetacut="0.11180"/>
+    <parameter name="EnergyDispersion" file="$VHEFITS/run023400-023599/run023592/hess_edisp_2d_023592.fits.gz"/>
+    <parameter name="PointSpreadFunction" file="$VHEFITS/run023400-023599/run023592/hess_psf_king_023592.fits.gz"/>
+	<parameter name="Background" file="$VHEFITS/run023400-023599/run023593/hess_bkg_offruns_023593.fits.gz"/>
+  </observation>
+</observation_list>

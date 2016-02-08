@@ -1,0 +1,110 @@
+### General parameter
+general:
+  # type of analysis (e.g. binned, unbinned)
+  anatype: unbinned
+  # use of energy dispersion (e.g. true or false)
+  edisp: true
+
+### For creation of xml model file
+model:
+  output: src_model.xml
+  # Name of the source, trouver un moyen de changer ça
+  name: Crab
+  # Coordinates J2000 (ra, dec)
+  coords:
+    ra: 83.6331
+    dec: 22.0145
+    fitposition: false
+  # spectrum (pwl, logpwl or exppwl)
+  spectral: pwl
+  spatial: plike
+  
+  # définition des hypothèses
+  pwl:
+    # In unit of 1.e-17 /cm2/s/Mev (10^-11 /cm2/s/TeV)
+    prefactor: 1.0
+    # index
+    index: -3.0
+    ### Tev
+    scale: 1.
+  exppwl:
+    prefactor: 1.0
+    index: 2.0
+    # MeV
+    ecut: 1.0
+    # In unit of 1.e-17 /cm2/s/Mev (10^-11 /cm2/s/TeV)
+    scale: 1.0
+  logpwl: 
+    prefactor: 1.0
+    index: 2.0
+    # MeV
+    alpha: 1.0
+    # In unit of 1.e-17 /cm2/s/Mev (10^-11 /cm2/s/TeV)
+    scale: 1.0
+
+### Data handling via csiactobs
+### (waiting fix from Michael Mayer, we bypass this for the moment)
+csiactobs:
+  vhepath: /Users/julien/Documents/WorkingDir/Tools/gamma/ana/data/hess/prod/fits/
+  dst_version: pa
+  run_list: crab_1DC.lis
+  obs_output: obs.xml
+  model_output: src_model.xml
+  #model_output: mm.xml
+
+### Selection of data for the fit
+ctselect:
+  # output file with selected data
+  output: selected_obs.xml
+  # radius for data selection (in degrees)
+  radius: 2.5
+  # minimal time for events (seconds)
+  tmin: 0
+  # maximal time for events (seconds)
+  tmax: 0
+  # minimal energy for events (TeV)
+  emin: 0.6
+  # minimal energy for events (TeV)
+  emax: 50.
+  # threshold definition (NONE, USER, DEFAULT)
+  usethres: DEFAULT
+
+### Bin selected data into counts map
+ctbin:
+  # output file name
+  output: selected_evts_cube.fits
+  # number of energy bins
+  enumbins: 20
+  # Size of the X axis in pixels
+  nxpix: 50
+  # Size of the X axis in pixels
+  nypix: 50
+  # Image scale (in degrees/pixel) 
+  binsz: 0.02
+
+### Generate exposure map. Normally should be larger than count cubes to handle correctly
+### the events at the edge of the images (reco vs true energy).
+ctexpcube:
+  output: expcube.fits
+ctpsfcube:
+  output: psfcube.fits
+ctbkgcube:
+  output_cube: bkgcube.fits
+  output_model: bkgmodel.xml
+
+ctlike:
+  output: results.xml
+
+### Generate spectrum points
+csspec:
+  output: spectrum.fits
+  emin: 0.5
+  emax: 30.
+  enumbins: 10
+
+### Generate butterfly
+ctbutterfly:
+  output: butterfly.txt
+
+plots:
+  spec_outfile: spectrum.png
