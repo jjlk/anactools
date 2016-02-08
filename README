@@ -1,0 +1,18 @@
+anactools
+
+### Description
+Make a gammalib/ctools analysis with H.E.S.S. data
+
+### Git memo
+Chopper la repo
+  ==> git clone https://hijlk@bitbucket.org/hijlk/anactools.git
+faire un update dans son working dir par rapport a la version du nuage
+  ==> git pull
+updater ses fichiers dans le nuage
+  ==> git add <filename> (ou git add *)
+  ==> git commit -m "Commit message"
+  ==> git push -u origin master
+
+
+### Use
+ (i)python scripts/ana.py configs/crabana.py
