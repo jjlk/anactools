@@ -10,6 +10,8 @@ import anactools.ConfigHandler as ConfigHandler
 has_matplotlib = False
 
 try:
+    import matplotlib as mpl
+    mpl.use('Agg')
     import matplotlib.pyplot as plt
     has_matplotlib = True
 except:

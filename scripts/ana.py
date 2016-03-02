@@ -7,8 +7,8 @@ import ctools
 
 import anactools.Utilities as Utilities
 import anactools.ConfigHandler as ConfigHandler
-from AnaTools import *
-from PlotTools import *
+from anactools.AnaTools import *
+from anactools.PlotTools import *
 
 """
 Do ctools analysis
@@ -52,7 +52,7 @@ try:
     os.system('cp ' + script_path + '/../models/src_model.xml ' + outputdir + '/.')
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopmodel = time.clock()
 print('==> OK (done in {0} s)'.format(tstopmodel-tstartmodel))
 
@@ -94,7 +94,7 @@ try:
     binData(cfg)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopbin = time.clock()
 print('==> OK (done in {0} s)'.format(tstopbin-tstartbin))
 
@@ -107,7 +107,7 @@ try:
     makeCubes(cfg)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopcubes = time.clock()
 print('==> OK (done in {0} s)'.format(tstopcubes-tstartcubes))
 
@@ -120,7 +120,7 @@ try:
     makeFit(cfg)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopfit = time.clock()
 print('==> OK (done in {0} s)'.format(tstopfit-tstartfit))
 
@@ -135,7 +135,7 @@ try:
     spectrum = makeSpectralPoints(cfg)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopspec = time.clock()
 print('==> OK (done in {0} s)'.format(tstopspec-tstartspec))
 
@@ -152,7 +152,7 @@ try:
     makeButterfly(cfg)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopspec = time.clock()
 print('==> OK (done in {0} s)'.format(tstopspec-tstartspec))
 
@@ -166,10 +166,11 @@ try:
     showSpectrum(cfg, spectrum)
 except:
     Utilities.warning('Problem ==> EXIT!')
-    sys.exit()
+    raise
 tstopplot = time.clock()
 print('==> OK (done in {0} s)'.format(tstopplot-tstartplot))
 
 
 tend = time.clock()
 print('\nJob done in {0} s'.format(tend-tstart))
+
