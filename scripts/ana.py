@@ -33,6 +33,7 @@ except:
     sys.exit()
 
 tstart = time.clock()
+script_path = os.path.dirname(__file__)
 
 ### Create output directory
 outputdir = cfg.getValue('general','outputdir')
@@ -47,8 +48,8 @@ try:
     ### HACK for now, waiting for csiasctobs to works
     #dealWithModelFile(cfg)
     Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    print('Copying models/src_model.xml to outputdir/.')
-    os.system('cp models/src_model.xml ' + outputdir + '/.')
+    print('Copying src_model.xml to outputdir/.')
+    os.system('cp ' + script_path + '/../models/src_model.xml ' + outputdir + '/.')
 except:
     Utilities.warning('Problem ==> EXIT!')
     sys.exit()
@@ -64,8 +65,8 @@ try:
     ### HACK for now, waiting for csiasctobs to works
     #handleData(cfg)
     Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    print('Copying obs/obs.xml to outputdir/.')
-    os.system('cp obs/obs.xml ' + outputdir + '/.')
+    print('Copying obs.xml to outputdir/.')
+    os.system('cp ' + script_path + '/../obs/obs.xml ' + outputdir + '/.')
 except:
     pass
 tstopdata = time.clock()
