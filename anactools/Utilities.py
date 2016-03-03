@@ -18,6 +18,7 @@ class Utilities(object):
         WARNINGCOLOR = "\033[31;01m"
         RESETCOLOR = "\033[0m"
         print(WARNINGCOLOR + "WARNING> " + RESETCOLOR + string)
+        sys.stdout.flush()
 
     @staticmethod
     def info(string):
@@ -30,4 +31,5 @@ class Utilities(object):
         INFOCOLOR = "\033[32;01m"
         RESETCOLOR = "\033[0m"
         print(INFOCOLOR + "INFO> " + RESETCOLOR + string)
+        sys.stdout.flush()
 
