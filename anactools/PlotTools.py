@@ -136,6 +136,8 @@ def showSpectrum(cfg, spectrum):
     plt.fill(butterfly_x,butterfly_y,color='green',alpha=0.5)
     plt.plot(line_x,line_y,color='black',ls='-')
 
+    plt.autoscale(tight=True)
+
     outputdir = cfg.getValue('general','outputdir')
     plt.savefig(outputdir + '/' + cfg.getValue('plots','spec_outfile'))
     #plt.show()
