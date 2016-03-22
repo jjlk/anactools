@@ -1,11 +1,12 @@
 #!/opt/local/bin/bash
 
 ### gamma directory
-export GAMMALIB=$TOOLS/gamma
-export CTOOLS=$TOOLS/gamma
+export GAMMALIB=$TOOLS/python/gamma
+export CTOOLS=$TOOLS/python/gamma
 
 ### Path to data
-export VHEFITS=/Users/julien/Documents/WorkingDir/Tools/gamma/ana/data/hess/prod/fits/prod_pa/pa_2015-07/Model_Deconvoluted_Prod26/Mpp_Std/
+#export VHEFITS=/Users/julien/Documents/WorkingDir/Tools/python/anactools/data/hess/prod/fits/prod_pa/pa_2015-07/Model_Deconvoluted_Prod26/Mpp_Std
+export VHEFITS=/Users/julien/Documents/WorkingDir/Tools/python/anactools/data/hess/
 
 ### envs to work with gammalib/ctools
 source $GAMMALIB/bin/gammalib-init.sh
