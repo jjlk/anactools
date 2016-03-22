@@ -1,0 +1,17 @@
+{
+    "datasets": [
+        {
+            "name": "mpp",
+                "obsindx": "relative/path/to/prod1-std/obs-index.fits.gz",
+            "hduindx": "relative/path/to/prod1-std/hdu-index.fits.gz",
+                "comment": "First test version",
+                "drawback": "Not all data available"
+        },
+        {
+            "name": "hap",
+                "obsindx": "prod_hap/hap_2015-10/version32/std/runinfo.fits",
+            "hduindx": "relative/path/to/prod2-hard/hdu-index.fits.gz",
+                "recommendation:": "use for science publications"
+        }
+    ]
+}

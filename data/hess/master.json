@@ -1,0 +1,44 @@
+{
+  "datasets": [
+    {
+      "Date created": "2016-02-27", 
+      "hduindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Faint/hdu-index.fits.gz", 
+      "Total events": 21964619, 
+      "Total time": "8856.80 hours", 
+      "Disk usage": "1273.14 MB", 
+      "Total observations": 19469, 
+      "obsindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Faint/obs-index.fits.gz", 
+      "name": "hess-fits-pa-release-1.0-Prod26-MppFaint"
+    }, 
+    {
+      "Date created": "2016-02-27", 
+      "hduindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_HiRes/hdu-index.fits.gz", 
+      "Total events": 9300536, 
+      "Total time": "8853.88 hours", 
+      "Disk usage": "632.06 MB", 
+      "Total observations": 19461, 
+      "obsindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_HiRes/obs-index.fits.gz", 
+      "name": "hess-fits-pa-release-1.0-Prod26-MppHiRes"
+    }, 
+    {
+      "Date created": "2016-02-27", 
+      "hduindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Loose/hdu-index.fits.gz", 
+      "Total events": 119983333, 
+      "Total time": "8857.85 hours", 
+      "Disk usage": "4764.16 MB", 
+      "Total observations": 19472, 
+      "obsindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Loose/obs-index.fits.gz", 
+      "name": "hess-fits-pa-release-1.0-Prod26-MppLoose"
+    }, 
+    {
+      "name": "hess-fits-pa-release-1.0-Prod26-MppStd", 
+      "hduindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Std/hdu-index.fits.gz", 
+      "obsindx": "pa/release-1.0/Model_Deconvoluted_Prod26/Mpp_Std/obs-index.fits.gz", 
+      "Total observations": 19471, 
+      "Total time": "8857.37 hours", 
+      "Total events": 39849152, 
+      "Disk usage": "1914.57 MB", 
+      "Date created": "2016-02-27"
+    }
+  ]
+}
