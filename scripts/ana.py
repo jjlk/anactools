@@ -46,10 +46,10 @@ tstartmodel = time.clock()
 try:
     Utilities.info('Generating xml file model...')
     ### HACK for now, waiting for csiasctobs to works
-    #dealWithModelFile(cfg)
-    Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    print('Copying src_model.xml to outputdir/.')
-    os.system('cp ' + script_path + '/../models/src_model.xml ' + outputdir + '/.')
+    dealWithModelFile(cfg)
+    #Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
+    #print('Copying src_model.xml to outputdir/.')
+    #os.system('cp ' + script_path + '/../models/src_model.xml ' + outputdir + '/.')
 except:
     Utilities.warning('Problem ==> EXIT!')
     raise
@@ -63,12 +63,13 @@ tstartdata = time.clock()
 try:
     Utilities.info('Handling data...')
     ### HACK for now, waiting for csiasctobs to works
-    #handleData(cfg)
-    Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    print('Copying obs.xml to outputdir/.')
-    os.system('cp ' + script_path + '/../obs/obs.xml ' + outputdir + '/.')
+    handleData(cfg)
+    #Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
+    #print('Copying obs.xml to outputdir/.')
+    #os.system('cp ' + script_path + '/../obs/obs.xml ' + outputdir + '/.')
 except:
-    pass
+    Utilities.warning('Problem ==> EXIT!')
+    raise
 tstopdata = time.clock()
 print('==> OK (done in {0} s)'.format(tstopdata-tstartdata))
 
@@ -76,12 +77,12 @@ print('==> OK (done in {0} s)'.format(tstopdata-tstartdata))
 ### select data ###
 ###################
 tstartselect = time.clock()
-#try:
-Utilities.info('Selecting data...')
-selectData(cfg)
-#except:
- #   Utilities.warning('Problem ==> EXIT!')
-  #  sys.exit()
+try:
+    Utilities.info('Selecting data...')
+    selectData(cfg)
+except:
+    Utilities.warning('Problem ==> EXIT!')
+    raise
 tstopselect = time.clock()
 print('==> OK (done in {0} s)'.format(tstopselect-tstartselect))
 

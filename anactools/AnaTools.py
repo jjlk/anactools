@@ -4,6 +4,8 @@ import os
 import gammalib
 import ctools
 
+import cscripts
+
 import anactools.Utilities as Utilities
 import anactools.ConfigHandler as ConfigHandler
 
@@ -75,7 +77,22 @@ def dealWithModelFile(cfg):
     del models
 
 def handleData(cfg):
-    Utilities.warning('Skipping this part for the moment!')
+    outputdir = cfg.getValue('general','outputdir')
+    
+    obs = cscripts.csiactobs()
+    ### prodname, inmodels, runlist, outobs, outmodel, bkgpars
+    obs['prodname'] = cfg.getValue('csiactobs','prod_name')
+    obs['infile'] = cfg.getValue('csiactobs','run_list')
+    obs['bkgpars'] = 1
+    obs['bkg_scale'] = True
+    obs['inmodel'] = outputdir + '/' + cfg.getValue('model','output')
+    obs['outobs'] = outputdir + '/' + cfg.getValue('csiactobs','obs_output')
+    obs['outmodel'] = outputdir + '/' + cfg.getValue('csiactobs','model_output')
+
+    if cfg.getValue('general','debug') == True:
+        obs["debug"]    = True 
+    
+    obs.execute()
     
 def selectData(cfg):
     """
@@ -199,8 +216,6 @@ def makeFit(cfg):
 
     like.run()
     like.save()  
-
-import cscripts
     
 def makeSpectralPoints(cfg):
     """
