@@ -1,11 +1,11 @@
 anactools
 
 ### Description
-Make a gammalib/ctools analysis with H.E.S.S. data
+Make a gammalib/ctools analysis with HESS data
 
 ### Git memo
 Chopper la repo
-  ==> git clone https://hijlk@bitbucket.org/hijlk/anactools.git
+  ==> git clone https://github.com/jjlk/anactools.git
 faire un update dans son working dir par rapport a la version du nuage
   ==> git pull
 updater ses fichiers dans le nuage
