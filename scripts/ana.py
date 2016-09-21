@@ -18,7 +18,7 @@ configuration file
 """
 
 ### config file
-if len(sys.argv) <2:
+if len(sys.argv) < 2:
     print('param: configuration file')
     sys.exit()
 
@@ -39,17 +39,18 @@ script_path = os.path.dirname(__file__)
 outputdir = cfg.getValue('general','outputdir')
 os.system('mkdir -p {0}'.format(outputdir))
 
+### Butterfly can be done only for pwl hypothesis (see why)
+show_butterfly = True
+if cfg.getValue('model','spectral') != 'pwl':
+    show_butterfly = False
+
 #########################
 ### create model file ###
 #########################
 tstartmodel = time.clock()
 try:
     Utilities.info('Generating xml file model...')
-    ### HACK for now, waiting for csiasctobs to works
     dealWithModelFile(cfg)
-    #Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    #print('Copying src_model.xml to outputdir/.')
-    #os.system('cp ' + script_path + '/../models/src_model.xml ' + outputdir + '/.')
 except:
     Utilities.warning('Problem ==> EXIT!')
     raise
@@ -62,11 +63,7 @@ print('==> OK (done in {0} s)'.format(tstopmodel-tstartmodel))
 tstartdata = time.clock()
 try:
     Utilities.info('Handling data...')
-    ### HACK for now, waiting for csiasctobs to works
     handleData(cfg)
-    #Utilities.warning('Hack for the moment, waiting for csiactobs to handle H.E.S.S. data')
-    #print('Copying obs.xml to outputdir/.')
-    #os.system('cp ' + script_path + '/../obs/obs.xml ' + outputdir + '/.')
 except:
     Utilities.warning('Problem ==> EXIT!')
     raise
@@ -147,16 +144,18 @@ if spectrum == None:
 ######################
 ### make butterfly ###
 ######################
-tstartspec = time.clock()
-try:
-    Utilities.info('Generating butterfly...')
-    makeButterfly(cfg)
-except:
-    Utilities.warning('Problem ==> EXIT!')
-    raise
-tstopspec = time.clock()
-print('==> OK (done in {0} s)'.format(tstopspec-tstartspec))
-
+if show_butterfly is True: 
+    tstartspec = time.clock()
+    try:
+        Utilities.info('Generating butterfly...')
+        makeButterfly(cfg)
+    except:
+        Utilities.warning('Problem ==> EXIT!')
+        raise
+    tstopspec = time.clock()
+    print('==> OK (done in {0} s)'.format(tstopspec-tstartspec))
+else:
+    Utilities.info('Hypothesis is not pwl ==> No butterfly')
 
 #####################
 ### plot spectrum ###
@@ -164,7 +163,7 @@ print('==> OK (done in {0} s)'.format(tstopspec-tstartspec))
 tstartplot = time.clock()
 try:
     Utilities.info('Generating spectral plot...')
-    showSpectrum(cfg, spectrum)
+    showSpectrum(cfg, spectrum, show_butterfly)
 except:
     Utilities.warning('Problem ==> EXIT!')
     raise

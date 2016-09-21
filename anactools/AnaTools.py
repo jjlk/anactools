@@ -44,29 +44,77 @@ def dealWithModelFile(cfg):
     opt_spectral = cfg.getValue('model', 'spectral')
     if opt_spectral == 'pwl':
         spectral = gammalib.GModelSpectralPlaw()
-        # print(spectral)
-        # fix prefactor
+        # handle prefactor
         prefactor = cfg.getValue('model', 'pwl', 'prefactor')
         spectral['Prefactor'].value(prefactor * 1.e-17)
-        # print(spectral)
         spectral['Prefactor'].min(1.e-24)
         spectral['Prefactor'].max(1.e-14)
         spectral['Prefactor'].scale(1.e-17)
-        # fix scale
+        # handle scale
         scale = cfg.getValue('model', 'pwl', 'scale')
         spectral['PivotEnergy'].value(scale * 1.e6)
         spectral['PivotEnergy'].scale(1.e6)
         spectral['PivotEnergy'].min(1.e4)
         spectral['PivotEnergy'].max(1.e9)
-        # fix index
+        # handle index
         index = cfg.getValue('model', 'pwl', 'index')
-        # print index
-        # print(spectral)
         spectral['Index'].value(index)
         spectral['Index'].scale(-1.)
         spectral['Index'].min(-0)
         spectral['Index'].max(-5)
-    else:  # TODO
+    elif opt_spectral == 'logpwl':
+        spectral = gammalib.GModelSpectralLogParabola()
+        # handle prefactor
+        prefactor = cfg.getValue('model', 'logpwl', 'prefactor')
+        spectral['Prefactor'].value(prefactor * 1.e-17)
+        spectral['Prefactor'].min(1.e-24)
+        spectral['Prefactor'].max(1.e-14)
+        spectral['Prefactor'].scale(1.e-17)
+        # handle scale
+        scale = cfg.getValue('model', 'logpwl', 'scale')
+        spectral['PivotEnergy'].value(scale * 1.e6)
+        spectral['PivotEnergy'].scale(1.e6)
+        spectral['PivotEnergy'].min(1.e4)
+        spectral['PivotEnergy'].max(1.e9)
+        # handle index
+        index = cfg.getValue('model', 'logpwl', 'index')
+        spectral['Index'].value(index)
+        spectral['Index'].scale(-1.)
+        spectral['Index'].min(-0)
+        spectral['Index'].max(-5)
+        # handle curvature
+        curvature = cfg.getValue('model', 'logpwl', 'curvature')
+        spectral['Curvature'].value(curvature)
+        spectral['Curvature'].scale(-1.)
+        spectral['Curvature'].min(5)
+        spectral['Curvature'].max(-5)
+    elif opt_spectral == 'exppwl':
+        spectral = gammalib.GModelSpectralExpPlaw()
+        # handle prefactor
+        prefactor = cfg.getValue('model', 'exppwl', 'prefactor')
+        spectral['Prefactor'].value(prefactor * 1.e-17)
+        spectral['Prefactor'].min(1.e-24)
+        spectral['Prefactor'].max(1.e-14)
+        spectral['Prefactor'].scale(1.e-17)
+        # handle scale
+        scale = cfg.getValue('model', 'exppwl', 'scale')
+        spectral['PivotEnergy'].value(scale * 1.e6)
+        spectral['PivotEnergy'].scale(1.e6)
+        spectral['PivotEnergy'].min(1.e4)
+        spectral['PivotEnergy'].max(1.e9)
+        # handle index
+        index = cfg.getValue('model', 'exppwl', 'index')
+        spectral['Index'].value(index)
+        spectral['Index'].scale(-1.)
+        spectral['Index'].min(-0)
+        spectral['Index'].max(-5)
+        # handle index
+        cutoff = cfg.getValue('model', 'exppwl', 'cutoff')
+        spectral['CutoffEnergy'].value(cutoff * 1.e6)
+        spectral['CutoffEnergy'].scale(1.e6)
+        spectral['CutoffEnergy'].min(1.e4)
+        spectral['CutoffEnergy'].max(1.e9)
+    else:
         pass
 
     model = gammalib.GModelSky(spatial, spectral)
